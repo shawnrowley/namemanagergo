@@ -1,12 +1,12 @@
 package models
 
-type (  
+type (
     // Gender struct
     Gender struct {
         name   		string
         gender  	string
         samples		string
         accuracy 	string
-	duration 	string
+	      duration 	string
     }
 )
