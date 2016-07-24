@@ -20,9 +20,9 @@ func NewPersonController(s *mgo.Session) *PersonController {
 	return &PersonController{s}
 }
 
+// GetPerson gets Person by Id
 func (pc PersonController) GetPerson(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	 id := p.ByName("id")
- // Verify id is ObjectId, otherwise bail
 	if !bson.IsObjectIdHex(id) {
 		w.WriteHeader(404)
 		return
@@ -39,8 +39,8 @@ func (pc PersonController) GetPerson(w http.ResponseWriter, r *http.Request, p h
 	fmt.Fprintf(w, "%s", personjson)
 }
 
+// GetAllPersons gets all persons
 func (pc PersonController) GetAllPersons(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-
 		var persons []models.Person
 		err := pc.session.DB("namemanager").C("Person").Find(nil).All(&persons)
 		if err != nil {
@@ -56,7 +56,6 @@ func (pc PersonController) GetAllPersons(w http.ResponseWriter, r *http.Request,
 
 // CreatePerson creates a new Person resource
 func (pc PersonController) CreatePerson(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-		// Stub an Person to be populated from the body
 		person := models.Person{}
 		json.NewDecoder(r.Body).Decode(&person)
 		person.Id = bson.NewObjectId()
@@ -68,8 +67,8 @@ func (pc PersonController) CreatePerson(w http.ResponseWriter, r *http.Request, 
 		fmt.Fprintf(w, "%s", personjson)
 }
 
-// RemovePerson removes an existing Person resource
-func (pc PersonController) RemovePerson(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+// DeletePerson removes an existing Person resource
+func (pc PersonController) DeletePerson(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	id := p.ByName("id")
 	if !bson.IsObjectIdHex(id) {
 		w.WriteHeader(404)
@@ -77,7 +76,7 @@ func (pc PersonController) RemovePerson(w http.ResponseWriter, r *http.Request, 
 	}
 	oid := bson.ObjectIdHex(id)
 
-	// Remove person
+	// Delete person
 	if err := pc.session.DB("namemanager").C("Person").RemoveId(oid); err != nil {
 		w.WriteHeader(404)
 		return
