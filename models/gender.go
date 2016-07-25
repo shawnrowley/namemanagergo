@@ -3,10 +3,8 @@ package models
 type (
     // Gender struct
     Gender struct {
-        name   		string
-        gender  	string
-        samples		string
-        accuracy 	string
-	      duration 	string
+        Name   		string   `json:"name"`
+        Gender  	string   `json:"gender"`
+        Accuracy 	int      `json:"accuracy"`
     }
 )

@@ -25,6 +25,7 @@ func main() {
     r.GET("/person/:id", pc.GetPerson)
     r.POST("/person", pc.CreatePerson)
     r.DELETE("/person/:id", pc.DeletePerson)
+    r.GET("/report", pc.GetGenderReport);
 
     // Starts server
     http.ListenAndServe("localhost:3000", r)
