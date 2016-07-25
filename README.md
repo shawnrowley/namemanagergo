@@ -12,6 +12,11 @@ Create an app that allows you to manage names. Basic CRUD operation. Also includ
 
 Public API: https://gender-api.com/en/api-docs
 
+System Requirements
+-----------
+
+Golang 
+MongoDB
 
 Developer Notes
 -----------
