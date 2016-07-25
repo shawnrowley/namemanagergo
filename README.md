@@ -18,6 +18,8 @@ Developer Notes
 
 Digging Golang, like a good book couldn't put it down. Basic CRUD GTG.
 
+Completed the baseline implementation to include the report.
+
 
 RESTful API
 -----------
@@ -26,6 +28,7 @@ RESTful API
     r.GET("/person/:id", pc.GetPerson)
     r.POST("/person", pc.CreatePerson)
     r.DELETE("/person/:id", pc.DeletePerson)
+    r.GET("/report", pc.GetGenderReport);
 
 Technologies
 -----------
