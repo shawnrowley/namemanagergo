@@ -21,7 +21,7 @@ MongoDB
 Developer Notes
 -----------
 
-Digging Golang, like a good book couldn't put it down. Good resources online. Basic CRUD GTG, need update
+Digging Golang, like a good book couldn't put it down. Good resources online. Basic CRD :) GTG, forgot update
 
 Completed the baseline implementation to include the report. N
 
