@@ -21,9 +21,9 @@ MongoDB
 Developer Notes
 -----------
 
-Digging Golang, like a good book couldn't put it down. Good resources online. Basic CRUD GTG.
+Digging Golang, like a good book couldn't put it down. Good resources online. Basic CRUD GTG, need update
 
-Completed the baseline implementation to include the report.
+Completed the baseline implementation to include the report. N
 
 
 RESTful API
@@ -35,6 +35,20 @@ RESTful API
     r.DELETE("/person/:id", pc.DeletePerson)
     r.GET("/report", pc.GetGenderReport);
 
+Test Examples
+--------------
+Create: 
+curl -XPOST -H 'Content-Type: application/json' -d '{"firstname": "Shawn", "lastname": "Rowley", "ipAddress":
+"127.0.0.1", "country": "US"}' http://localhost:3000/person
+
+Get All Person
+curl http://localhost:3000/person/
+
+Get Person by id
+curl http://localhost:3000/person/579529c1692044391a3aa8fd
+
+
+    
 Technologies
 -----------
 
@@ -59,5 +73,7 @@ Enhancements/Ideas
 	Try gorilla 
 	Needs a UI
 
+Code References 
+------------
 
 
