@@ -12,11 +12,18 @@ Create an app that allows you to manage names. Basic CRUD operation. Also includ
 
 Public API: https://gender-api.com/en/api-docs
 
+System Requirements
+-----------
+
+Golang 
+MongoDB
 
 Developer Notes
 -----------
 
-Digging Golang, like a good book couldn't put it down. Basic CRUD GTG.
+Digging Golang, like a good book couldn't put it down. Good resources online. Basic CRD :) GTG, forgot update
+
+Completed the baseline implementation to include the report. N
 
 
 RESTful API
@@ -26,7 +33,22 @@ RESTful API
     r.GET("/person/:id", pc.GetPerson)
     r.POST("/person", pc.CreatePerson)
     r.DELETE("/person/:id", pc.DeletePerson)
+    r.GET("/report", pc.GetGenderReport);
 
+Test Examples
+--------------
+Create: 
+curl -XPOST -H 'Content-Type: application/json' -d '{"firstname": "Shawn", "lastname": "Rowley", "ipAddress":
+"127.0.0.1", "country": "US"}' http://localhost:3000/person
+
+Get All Person
+curl http://localhost:3000/person/
+
+Get Person by id
+curl http://localhost:3000/person/579529c1692044391a3aa8fd
+
+
+    
 Technologies
 -----------
 
@@ -48,7 +70,10 @@ Deployment
 Enhancements/Ideas
 -----------	
 
-Try gorilla 
+	Try gorilla 
+	Needs a UI
 
+Code References 
+------------
 
 
