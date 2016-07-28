@@ -4,7 +4,6 @@
 Author: Shawn A. Rowley  
 Source: <https://github.com/shawnrowley/namemanagergo/>  
 
-
 Overview
 -----------
 
@@ -23,7 +22,9 @@ Developer Notes
 
 Digging Golang, like a good book couldn't put it down. Good resources online. Basic CRD :) GTG, forgot update
 
-Completed the baseline implementation to include the report. N
+Completed the baseline implementation to include the report. 
+
+Added update functionality now CRUD GTG.
 
 
 RESTful API
@@ -33,20 +34,30 @@ RESTful API
     r.GET("/person/:id", pc.GetPerson)
     r.POST("/person", pc.CreatePerson)
     r.DELETE("/person/:id", pc.DeletePerson)
+    r.PUT("/person/:id", pc.UpdatePerson)
     r.GET("/report", pc.GetGenderReport);
 
-Test Examples
+Usage
 --------------
 Create: 
-curl -XPOST -H 'Content-Type: application/json' -d '{"firstname": "Shawn", "lastname": "Rowley", "ipAddress":
-"127.0.0.1", "country": "US"}' http://localhost:3000/person
+	curl -XPOST -H 'Content-Type: application/json' -d '{"firstname": "Shawn", "lastname": "Rowley", "ipAddress":
+	"127.0.0.1", "country": "US"}' http://localhost:3000/person
 
 Get All Person
-curl http://localhost:3000/person/
+	curl http://localhost:3000/person/
 
 Get Person by id
-curl http://localhost:3000/person/579529c1692044391a3aa8fd
-
+	curl http://localhost:3000/person/579529c1692044391a3aa8fd  (GET)
+	
+Update:	
+	curl -XPUT -H 'Content-Type: application/json' -d '{"firstname": "Shawn", "lastname": "Rowley", "ipAddress":
+	"127.0.0.1", "country": "US"}' http://localhost:3000/person/579529c1692044391a3aa8fd  
+	
+Delete:
+        curl http://localhost:3000/person/579529c1692044391a3aa8fd  (DELETE)
+        
+Report:
+        curl http://localhost:3000/report       
 
     
 Technologies
